@@ -5,7 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+
     tools:context="tw.com.abc.myservice.MainActivity">
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,5 +27,10 @@
         android:text="Stop"
         android:onClick="stop"
         />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:onClick="test"
+        />
 </LinearLayout>

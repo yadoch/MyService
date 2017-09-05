@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 public class MyService extends Service {
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         Log.i("brad", "onBind");
