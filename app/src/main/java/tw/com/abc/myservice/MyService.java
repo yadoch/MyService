@@ -37,6 +37,7 @@ public class MyService extends Service {
         it.putExtra("len", len);
         sendBroadcast(it);
 
+        player.setLooping(true); // 循環播放
         player.start();
         Log.i("brad", "Player Start run!");
 
