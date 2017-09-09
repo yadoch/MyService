@@ -30,6 +30,29 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(myReceive, filter);
 
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                //formUser 使用者有無異動- 來自背景服務的異動不處理
+                if(fromUser){
+                    Intent it = new Intent(MainActivity.this,MyService.class);
+                    it.putExtra("progress",progress);
+                    startService(it);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // SeekBar 按下時   如:"會有時間點顯示"
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // SeekBar 放開時 如:"時間點會消失"
+            }
+        });
+
 /*
         // 一開始為 Start 模式 -註解掉下面Bind 模式測試觀察生命週期的差異
         Intent it =new Intent(MainActivity.this,MyService.class);

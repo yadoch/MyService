@@ -62,6 +62,11 @@ public class MyService extends Service {
         Log.i("brad", "onStartCommand");
         boolean isStart=intent.getBooleanExtra("isStart",false);
         boolean isPause=intent.getBooleanExtra("isPause",false);
+        int progress = intent.getIntExtra("progress",-1);
+        if(progress >= 0){
+            // 用seekTo() 修改播放位置
+            player.seekTo(progress);
+        }
         if(isPause) {
             if (player != null && player.isPlaying()) {
                 player.pause();
